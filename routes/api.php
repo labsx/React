@@ -2,14 +2,15 @@
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 Route::get('/users', function (Request $request) {
     $search = $request->input('q');
 
-    return JsonResource::collection(User::where('name', 'like', "%${search}%")->paginate());
+    return JsonResource::collection(User::where('title', 'like', "%${search}%")->paginate());
 });
 
 Route::post('/users', function (Request $request) {
@@ -38,3 +39,5 @@ Route::put('/users/{id}', function (Request $request, $id) {
 
     return new JsonResource($user);
 });
+
+Route::resource('/news', NewsController::class);
