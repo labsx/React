@@ -1,4 +1,5 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
+import { FaHome, FaUserFriends, FaInfoCircle } from 'react-icons/fa';
 
 export const Route = createRootRoute({
     component: () => (
@@ -13,7 +14,11 @@ export const Route = createRootRoute({
                 <Link to="/about" className="[&.active]:font-bold">
                     About
                 </Link>
+                <Link to="/profile" className="[&.active]:font-bold">
+                    Profile
+                </Link>
             </div>
+            
             <hr />
             <Outlet />
         </>

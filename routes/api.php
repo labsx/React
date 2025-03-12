@@ -1,10 +1,12 @@
 <?php
 
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 Route::get('/users', function (Request $request) {
@@ -41,3 +43,4 @@ Route::put('/users/{id}', function (Request $request, $id) {
 });
 
 Route::resource('/news', NewsController::class);
+Route::resource('/profile', ProfileController::class);
